@@ -3,7 +3,16 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"io/ioutil"
+	"net/http"
+	"os"
+	"path/filepath"
+	"reflect"
+	"strings"
+	"time"
+
 	"github.com/GeertJohan/yubigo"
+	"github.com/UniversityRadioYork/glauth/v2/internal/myradio"
 	"github.com/arl/statsviz"
 	docopt "github.com/docopt/docopt-go"
 	"github.com/fsnotify/fsnotify"
@@ -17,13 +26,6 @@ import (
 	"github.com/rs/zerolog"
 	"gopkg.in/amz.v3/aws"
 	"gopkg.in/amz.v3/s3"
-	"io/ioutil"
-	"net/http"
-	"os"
-	"path/filepath"
-	"reflect"
-	"strings"
-	"time"
 )
 
 // Set with buildtime vars
@@ -696,6 +698,9 @@ func validateConfig(cfg config.Config) (*config.Config, error) {
 		case "":
 			cfg.Backends[i].Datastore = "config"
 		case "config":
+		case "myradio":
+			cfg.Users, cfg.Groups = myradio.HandleMyRadio(cfg.Backends[i].MyRadioAPIKey)
+			cfg.Backends[i].Datastore = "config"
 		case "ldap":
 		case "owncloud":
 		case "plugin":
