@@ -9,7 +9,7 @@ replace github.com/glauth/glauth/v2 => ./
 
 require (
 	github.com/GeertJohan/yubigo v0.0.0-20190917122436-175bc097e60e
-	github.com/UniversityRadioYork/myradio-go v0.0.0-20230509104851-a49746119595 // indirect
+	github.com/UniversityRadioYork/myradio-go v0.0.0-20230523181859-9d09922c2c51 // indirect
 	github.com/arl/statsviz v0.4.0
 	github.com/boombuler/barcode v1.0.1 // indirect
 	github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815

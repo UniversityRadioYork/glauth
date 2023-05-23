@@ -39,6 +39,8 @@ github.com/UniversityRadioYork/myradio-go v0.0.0-20230508223716-c74e2e25f8c8 h1:
 github.com/UniversityRadioYork/myradio-go v0.0.0-20230508223716-c74e2e25f8c8/go.mod h1:iFH6u3KFaQ73MR9bfqTThGd7TFUYUe9cAajxxh9E0Z8=
 github.com/UniversityRadioYork/myradio-go v0.0.0-20230509104851-a49746119595 h1:iJp7y8ClSdGj59J0GQTncC32etU6p5mn3A3H8frIlis=
 github.com/UniversityRadioYork/myradio-go v0.0.0-20230509104851-a49746119595/go.mod h1:iFH6u3KFaQ73MR9bfqTThGd7TFUYUe9cAajxxh9E0Z8=
+github.com/UniversityRadioYork/myradio-go v0.0.0-20230523181859-9d09922c2c51 h1:Purn+ISRrnAlHnwH5cAUTwthqUAaNz1TemCQUG02xLA=
+github.com/UniversityRadioYork/myradio-go v0.0.0-20230523181859-9d09922c2c51/go.mod h1:iFH6u3KFaQ73MR9bfqTThGd7TFUYUe9cAajxxh9E0Z8=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=
