@@ -8,12 +8,12 @@ import (
 )
 
 func MyRadioAuthenticator(user *c.User, pw string, session *myradio.Session) error {
-	user, err := session.UserCredentialsTest(user.Name, pw)
+	myrUser, err := session.UserCredentialsTest(user.Name, pw)
 	if err != nil {
 		return err
 	}
 
-	if user == nil {
+	if myrUser == nil {
 		return fmt.Errorf("login invalid")
 	}
 
@@ -21,7 +21,7 @@ func MyRadioAuthenticator(user *c.User, pw string, session *myradio.Session) err
 }
 
 func HandleMyRadio(apiKey string) (users []c.User, groups []c.Group) {
-	groups = []c.Group{c.Group{
+	groups = []c.Group{{
 		Name:      "myradio-user",
 		GIDNumber: 1350,
 	}}
