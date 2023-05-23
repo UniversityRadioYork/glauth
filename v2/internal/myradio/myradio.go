@@ -1,11 +1,22 @@
 package myradio
 
 import (
+	"fmt"
+
 	"github.com/UniversityRadioYork/myradio-go"
 	c "github.com/glauth/glauth/v2/pkg/config"
 )
 
-func AllowAccess(_ *c.User, _ string) error {
+func MyRadioAuthenticator(user *c.User, pw string, session *myradio.Session) error {
+	user, err := session.UserCredentialsTest(user.Name, pw)
+	if err != nil {
+		return err
+	}
+
+	if user == nil {
+		return fmt.Errorf("login invalid")
+	}
+
 	return nil
 }
 
@@ -29,12 +40,14 @@ func HandleMyRadio(apiKey string) (users []c.User, groups []c.Group) {
 
 	for _, u := range myrUsers {
 		users = append(users, c.User{
-			Name:          u.Email,
-			PrimaryGroup:  1350,
-			UIDNumber:     u.MemberID,
-			GivenName:     u.Fname,
-			SN:            u.Sname,
-			PassAppCustom: AllowAccess,
+			Name:         u.Email,
+			PrimaryGroup: 1350,
+			UIDNumber:    u.MemberID,
+			GivenName:    u.Fname,
+			SN:           u.Sname,
+			PassAppCustom: func(user *c.User, pw string) error {
+				return MyRadioAuthenticator(user, pw, myrSession)
+			},
 		})
 	}
 
