@@ -46,7 +46,7 @@ func HandleMyRadio(apiKey string) (users []c.User, groups []c.Group) {
 			GivenName:    u.Fname,
 			SN:           u.Sname,
 			PassAppCustom: func(user *c.User, pw string) error {
-				return MyRadioAuthenticator(c.User{Name: u.Email}, pw, myrSession)
+				return MyRadioAuthenticator(&c.User{Name: u.Email}, pw, myrSession)
 			},
 		})
 	}
