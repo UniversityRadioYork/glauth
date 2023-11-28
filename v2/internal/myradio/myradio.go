@@ -39,8 +39,14 @@ func HandleMyRadio(apiKey string) (users []c.User, groups []c.Group) {
 	}
 
 	for _, u := range myrUsers {
+		cn := u.Eduroam
+
+		if cn == "" {
+			cn = u.Email
+		}
 		users = append(users, c.User{
-			Name:         u.Email,
+			Name:         cn,
+			Mail:         u.Email,
 			PrimaryGroup: 1350,
 			UIDNumber:    u.MemberID,
 			GivenName:    u.Fname,
